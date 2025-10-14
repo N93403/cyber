@@ -1,46 +1,5 @@
 #!/usr/bin/env python3
 
-🧠 Dati finali per lo spoofing
-Nodo	     IP	         MAC	            Interfaccia
-Attaccante	10.0.2.16	00:11:22:33:44:55	     eth0
-Vittima	    10.0.2.15	08:00:27:55:44:07	    enp0s3
-Gateway	    10.0.2.2	52:54:00:12:35:02	    enp0s3
-
-🔧 Modifica arp_spoof_lab.py
-Nel tuo script, imposta:
-
-victim_ip = "10.0.2.15"git push -u origin main
-
-victim_mac = "08:00:27:55:44:07"
-router_ip = "10.0.2.2"
-router_mac = "52:54:00:12:35:02"
-attacker_mac = "00:11:22:33:44:55"
-
-#Assicurati che l’interfaccia usata sia eth0.
-
-🔥 Esecuzione dell’attacco
-Sulla VM attaccante:
-
-
-cd ~/arp_lab/scripts/
-sudo python3 arp_spoof_lab.py
-
-
-🧪 Verifica sulla VM vittima
-
-ping 8.8.8.8
-
-#Se il ping fallisce durante lo spoofing, l’attacco è riuscito.
-
-🛡️ Ripristino
-Sulla VM attaccante:
-
-sudo sysctl -w net.ipv4.ip_forward=0
-
-Sulla VM vittima:
-
-sudo ip neigh flush all
-
 
 
 from scapy.all import ARP, Ether, send, srp
