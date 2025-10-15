@@ -25,3 +25,4 @@ vagrant up
 
 vagrant ssh attacker
 sudo bettercap --silent -iface eth0 -caplet ../scripts/bettercap_lab.cap
+
