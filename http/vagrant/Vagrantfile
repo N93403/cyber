@@ -1,0 +1,16 @@
+Vagrant.configure("2") do |config|
+  config.vm.define "attacker" do |attacker|
+    attacker.vm.box = "kalilinux/rolling"
+    attacker.vm.network "private_network", ip: "10.0.2.100", mac: "00:11:22:33:44:55"
+  end
+
+  config.vm.define "victim" do |victim|
+    victim.vm.box = "generic/ubuntu2204"
+    victim.vm.network "private_network", ip: "10.0.2.15", mac: "08:00:27:55:44:07"
+  end
+
+  config.vm.define "router" do |router|
+    router.vm.box = "generic/debian11"
+    router.vm.network "private_network", ip: "10.0.2.2", mac: "52:54:00:12:35:02"
+  end
+end

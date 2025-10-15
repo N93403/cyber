@@ -1,0 +1,2 @@
+# Filtra traffico HTTPS della vittima
+ip.addr == 10.0.2.15 && tcp.port == 443

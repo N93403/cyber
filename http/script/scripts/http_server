@@ -1,0 +1,18 @@
+Come usarlo
+Copia il file http_server.py nella VM vittima.
+
+Avvia il server:
+
+bash
+python3 http_server.py
+Dal browser della vittima, apri:
+
+Codice
+http://10.0.2.15:8080
+Inserisci username e password → i dati viaggiano in chiaro.
+
+Con Wireshark sull’attaccante, applica il filtro:
+
+Codice
+ip.addr == 10.0.2.15 && tcp.port == 8080
+→ vedrai le credenziali in testo leggibile.

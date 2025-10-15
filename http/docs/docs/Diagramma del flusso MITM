@@ -1,0 +1,40 @@
+                +-------------------+
+                |     Internet      |
+                +-------------------+
+                         ^
+                         |
+                 (HTTPS cifrato)
+                         |
+                +-------------------+
+                |      Router       |
+                |  IP: 10.0.2.2     |
+                +-------------------+
+                         ^
+                         |
+                 (ARP spoofing)
+                         |
+        +----------------------------------+
+        |          Attaccante              |
+        |  IP: 10.0.2.100                  |
+        |  Tool: Bettercap + Wireshark     |
+        +----------------------------------+
+          ^              |
+          |              v
+   (HTTP in chiaro)   (HTTPS verso server)
+          |              |
++-------------------+    |
+|      Vittima      |    |
+|  IP: 10.0.2.15    |    |
++-------------------+    |
+
+
+Spiegazione del flusso
+La vittima pensa di parlare in HTTP con il server.
+
+L’attaccante intercetta la richiesta con ARP spoofing.
+
+L’attaccante inoltra la richiesta al server in HTTPS.
+
+Il server risponde in HTTPS → l’attaccante lo decifra e lo reinvia in HTTP alla vittima.
+
+Con Wireshark, l’attaccante può osservare il traffico in chiaro.
