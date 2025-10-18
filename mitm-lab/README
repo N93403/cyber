@@ -1,0 +1,53 @@
+# 🧪 MITM Simulation Lab – WebVM/Linux Mint
+
+## 🎯 Obiettivo
+Questo progetto mostra, in forma **didattica e simulata**, come funziona un attacco
+**Man-in-the-Middle (MITM)** tramite ARP Spoofing.  
+⚠️ Tutto il materiale è a scopo educativo: non va mai usato su reti reali senza autorizzazione.
+
+---
+
+## 📂 Contenuto
+- `mitm_sim.sh` → Script shell che simula un attacco MITM
+- `README.md` → Guida passo-passo per studenti e docenti
+
+---
+
+## ▶️ Esecuzione
+1. Carica il file `mitm_sim.sh` in WebVM o in una VM Linux Mint.
+2. Rendi eseguibile lo script:
+   ```bash
+   chmod +x mitm_sim.sh
+##Avvialo con
+./mitm_sim.sh
+
+--
+##📊 Output atteso
+🔍 Avvio simulazione MITM...
+📡 Spoofing ARP tra 192.168.1.10 e 192.168.1.1
+💥 MITM attivo: intercettazione del traffico HTTP
+--
+##📨 Richiesta HTTP intercettata:
+GET /login.php HTTP/1.1
+Host: vulnerable.site
+Cookie: session=abc123
+--
+##🔐 Credenziali trovate:
+Username: admin
+Password: password123
+--
+##📊 Analisi completata. Nessun allarme rilevato.
+--
+##📚 Cosa impari
+Cos’è l’ARP Spoofing e perché è pericoloso
+
+Come un MITM può violare la CIA triad (Confidentiality, Integrity, Availability)
+
+Perché le contromisure moderne (DAI, VLAN, HSTS) sono fondamentali
+
+--
+##⚖️ Disclaimer
+
+##👉 In questo modo il tuo `README.md` sarà **autoesplicativo**, pronto per studenti e docenti, e darà subito un’idea chiara del laboratorio.  
+
+Vuoi che ti prepari anche un **diagramma ASCII della topologia MITM** da inserire nel README per renderlo più visivo?
