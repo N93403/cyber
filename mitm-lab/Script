@@ -1,0 +1,41 @@
+#!/bin/sh
+# MITM Simulation Script - Educational Only
+
+echo "=== Simulazione MITM (ARP Spoofing) ==="
+sleep 1
+echo "[1] Avvio attacco: invio pacchetti ARP falsi..."
+sleep 1
+echo "[2] Vittima (192.168.1.10) crede che l'attaccante sia il router (192.168.1.1)"
+sleep 1
+echo "[3] Router crede che l'attaccante sia la vittima"
+sleep 1
+echo "[*] Tutto il traffico ora passa attraverso l'attaccante"
+sleep 1
+
+echo ""
+echo "--- Traffico intercettato ---"
+echo "GET /login.php HTTP/1.1"
+echo "Host: vulnerable.site"
+echo "Cookie: session=abc123"
+sleep 1
+
+echo ""
+echo "--- Credenziali trovate ---"
+echo "Username: admin"
+echo "Password: password123"
+sleep 1
+
+echo ""
+echo "[✔] Analisi completata. Simulazione terminata."
+--
+##▶️ Come usarlo
+
+nano mitm_sim.sh   #Crea il file:
+
+Incolla il contenuto sopra
+
+Salva con Ctrl+O, Invio, poi esci con Ctrl+X
+
+chmod +x mitm_sim.sh # rendi eseguibile
+
+./mitm_sim.sh  #Avvia:
