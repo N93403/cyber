@@ -1,0 +1,2 @@
+Questa regola simula il blocco del traffico FTP (porta 21) come farebbe pfSense.
+Non eseguibile in WebVM, ma utile per ambienti reali o VM-based.
