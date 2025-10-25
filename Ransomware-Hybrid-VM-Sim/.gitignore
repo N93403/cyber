@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+
+# Chiavi sensibili (NON caricarle su GitHub, ma necessarie per la simulazione)
+keys/private_key.pem 
+
+# File di output e di test che cambiano ad ogni esecuzione
+test_files/*.crypted
+test_files/encryptedSymmertricKey.key
+test_files/decrypted_key_from_server.key
+test_files/LEGGIMI_DECRIPTARE.txt
