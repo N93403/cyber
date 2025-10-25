@@ -1,0 +1,1 @@
+Questo è il messaggio segreto. Deve essere crittografato prima dell'invio con la chiave pubblica RSA-OAEP. Il server lo decifrerà con la chiave privata.
