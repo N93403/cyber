@@ -1,0 +1,3 @@
+Contenuto di prova del file della vittima che verrà cifrato.
+Dopo l'attacco, questo testo sarà sostituito da caratteri incomprensibili.
+Se ripristinato, dovrai vedere nuovamente questo testo.
