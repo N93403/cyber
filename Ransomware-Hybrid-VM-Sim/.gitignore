@@ -2,7 +2,7 @@
 __pycache__/
 *.pyc
 
-# Chiavi sensibili (NON caricarle su GitHub, ma necessarie per la simulazione)
+# Chiavi sensibili (NON caricate su GitHub, ma necessarie per la simulazione)
 keys/private_key.pem 
 
 # File di output e di test che cambiano ad ogni esecuzione
