@@ -14,7 +14,7 @@ Assicurati di avere `python3` e `python3-venv` installati sul tuo sistema Linux 
 sudo apt update
 sudo apt install python3-venv python3-dev
 
-### 2. Creazione dell'Ambiente Virtuale
+ ### 2. Creazione dell'Ambiente Virtuale
 
 # Crea l'ambiente virtuale
 python3 -m venv ~/afl-venv
