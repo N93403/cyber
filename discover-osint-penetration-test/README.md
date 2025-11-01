@@ -20,7 +20,7 @@ Questo progetto fornisce un ambiente completo per apprendere e praticare tecnich
 
 ### Prerequisiti
 - 2 VM Kali Linux
-- 8GB RAM per VM
+- 2GB RAM per VM
 - 20GB spazio disco
 - Connessione di rete tra le VM
 
