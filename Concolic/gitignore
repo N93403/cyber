@@ -1,0 +1,35 @@
+# ---------------------------------
+# 1. File Generati dalla Compilazione
+# ---------------------------------
+
+# Binario eseguibile creato da 'make'
+simple
+# File oggetto generati dal compilatore (se presenti)
+*.o
+*.out
+
+# ---------------------------------
+# 2. File Specifici di Python/Angr
+# ---------------------------------
+
+# Directory di cache e build di Python
+__pycache__/
+*.pyc
+
+# Virtual Environment (se ne usi uno)
+venv/
+.venv/
+
+# ---------------------------------
+# 3. File Specifici dell'Editor (VS Code)
+# ---------------------------------
+
+# Directory di configurazione di VS Code (settings, workspace, ecc.)
+.vscode/
+
+# ---------------------------------
+# 4. Angr specifici (potenziali)
+# ---------------------------------
+
+# Se Angr dovesse generare file di log o cache molto grandi
+angr-cache/
