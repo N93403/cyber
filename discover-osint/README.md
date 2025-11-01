@@ -10,12 +10,7 @@ Questo progetto dimostra l'uso di Discover per:
 - Raccolta di informazioni da fonti pubbliche
 - Generazione di report automatizzati
 
-## 🚀 Installazione
 
-```bash
-# Clona il repository
-git clone https://github.com/tuo-username/discover-osint-demo.git
-cd discover-osint-demo
 
 # Esegui lo script di setup
 chmod +x scripts/setup.sh
