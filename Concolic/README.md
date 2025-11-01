@@ -1,22 +1,12 @@
-# Angr Simple Crackme: Esecuzione Simbolica
+Certo! Ecco il file README.md completo e altamente esplicativo per il tuo progetto GitHub, formattato in Markdown per la massima chiarezza e professionalità.🛡️ Angr Simple Crackme: Esecuzione Simbolica (Analisi Concolica)Questo progetto funge da dimostrazione pratica dell'uso del framework di analisi binaria Angr per risolvere un semplice problema di reverse engineering noto come "crackme."L'obiettivo è trovare automaticamente la password (7857) analizzando il binario compilato, un processo noto come Esecuzione Simbolica (o Concolic).💡 Principi di Sicurezza e AnalisiL'analisi con Angr non si basa sul brute force, ma sulla matematica dei vincoli. Quando lo script solve.py esegue il binario:Input Simbolico: Angr tratta l'input utente (x) come una variabile simbolica $X$, non un numero concreto.Generazione di Vincoli: L'istruzione di controllo if(x == 7857) nel codice C viene convertita in un vincolo matematico per il solutore SMT: $X = 7857$.Esplorazione del Percorso (Path Exploration): Angr utilizza le funzioni is_successful e should_abort per dirigere l'esplorazione verso l'unico percorso che soddisfa il vincolo e stampa "Access Granted."Risoluzione (Constraint Solving): Il Solutore SMT (Satisfiability Modulo Theories) calcola il valore di $X$ che soddisfa il vincolo, rivelando la password: 7857.Questo dimostra che hardcoding valori di sicurezza in un binario è una tecnica inefficace, poiché la logica del programma può essere invertita con strumenti di analisi binaria avanzati.⚙️ PrerequisitiPer clonare, compilare ed eseguire questo progetto, sono necessari i seguenti strumenti nel tuo ambiente Linux o macOS:StrumentoScopoInstallazione (Esempio Debian/Ubuntu)GitClonare la repositorysudo apt install gitGCCCompilatore Csudo apt install build-essentialPython 3Eseguire lo script AngrGeneralmente preinstallatoAngrFramework di Esecuzione Simbolicapip install angr⚠️ Nota sulla Compilazione: Il Makefile utilizza l'opzione -m32. Se si verificano errori di compilazione relativi a librerie mancanti (ad esempio, cannot find -lc), potrebbe essere necessario installare le librerie a 32-bit: sudo apt install libc6-dev-i386.🚀 Istruzioni Dettagliate per l'EsecuzioneEsegui questi passaggi all'interno della directory del progetto (Concolic/Angr-Simple-Crackme).Passo 1: Compilazione del Binario (Usando make)Il Makefile compila il sorgente C (simple.c) nell'eseguibile simple, impostando i flag corretti per l'analisi.Bashmake
+Verifica (Output Atteso):Compilazione di simple...
+gcc simple.c -o simple -Wall -m32
+Compilazione completata. Binario: simple
+Passo 2: Risoluzione con AngrEsegui lo script Python per avviare l'analisi simbolica. Questo processo risolve il binario e stampa la password.Bashpython3 solve.py
+Output Finale di Successo:... (Angr log e messaggi di esplorazione) ...
 
-
-
-Questo progetto dimostra l'uso del framework di analisi binaria **Angr** per risolvere un semplice "crackme" (un programma binario che richiede una password).
-
-Il codice C (`simple.c`) contiene una password hardcoded e lo script Python (`solve.py`) utilizza l'esecuzione simbolica per trovare la password automaticamente, senza eseguire il programma concretamente.
-
----
-
-## ⚙️ Prerequisiti
-
-Per eseguire questo progetto è necessario avere installato:
-
-1.  **GCC:** Il compilatore C.
-2.  **Python 3:** L'ambiente di esecuzione Python.
-3.  **Angr:** Il framework di esecuzione simbolica.
-
-Per installare Angr e le sue dipendenze:
-
-```bash
-pip install angr
+==============================
+✅ Risoluzione completata con successo!
+Password trovata (Concrete Value): 7857
+==============================
+Passo 3: Pulizia (Facoltativo)Rimuovi il binario eseguibile simple e i file oggetto generati dalla compilazione.Bashmake clean
