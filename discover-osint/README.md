@@ -1,4 +1,4 @@
-# Discover OSINT Demo
+# Discover OSINT 
 
 Una dimostrazione completa dell'utilizzo del framework Discover per operazioni OSINT (Open Source Intelligence) nella penetration testing.
 
