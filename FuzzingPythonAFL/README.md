@@ -14,7 +14,7 @@ Assicurati di avere `python3` e `python3-venv` installati sul tuo sistema Linux 
 sudo apt update
 sudo apt install python3-venv python3-dev
 
-##2. Creazione dell'Ambiente Virtuale
+### 2. Creazione dell'Ambiente Virtuale
 
 # Crea l'ambiente virtuale
 python3 -m venv ~/afl-venv
@@ -23,7 +23,7 @@ python3 -m venv ~/afl-venv
 source ~/afl-venv/bin/activate
 
 
-##3. Installazione di python-afl
+### 3. Installazione di python-afl
 
 #python-afl deve essere installato all'interno dell'ambiente virtuale.
 
@@ -33,7 +33,7 @@ pip install cython
 # Installa la libreria per il fork server di Python
 pip install python-afl
 
-##4. Preparazione del Seed Corpus
+### 4. Preparazione del Seed Corpus
 
 #Il fuzzer ha bisogno di input iniziali validi (chiamati "seed") da mutare.
 # Crea i file seed (già inclusi, ma utile saperlo)
