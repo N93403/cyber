@@ -36,7 +36,7 @@ docker build -t heartbleed-vulnerable .
 docker run -d -p 8443:443 --name vulnerable heartbleed-vulnerable
 
 
-### Fase 2: Server Patchato
+# Fase 2: Server Patchato
 Naviga in patched-server/ e costruisci l'immagine. Questa configurazione utilizza una versione di OpenSSL che include la patch.
 
 cd patched-server
@@ -44,7 +44,7 @@ docker build -t heartbleed-patched .
 docker run -d -p 8444:443 --name patched heartbleed-patched
 
 
-🔬 Attività di Laboratorio
+# 🔬 Attività di Laboratorio
 Test di Verifica: Utilizzare uno strumento di verifica della vulnerabilità su localhost:8443 e localhost:8444.
 
 Analisi Forense di Rete: Utilizzare Wireshark o tcpdump per catturare il traffico durante il test di verifica.
