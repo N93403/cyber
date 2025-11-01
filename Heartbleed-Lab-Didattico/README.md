@@ -36,7 +36,7 @@ docker build -t heartbleed-vulnerable .
 docker run -d -p 8443:443 --name vulnerable heartbleed-vulnerable
 
 
-Fase 2: Server Patchato
+### Fase 2: Server Patchato
 Naviga in patched-server/ e costruisci l'immagine. Questa configurazione utilizza una versione di OpenSSL che include la patch.
 
 cd patched-server
