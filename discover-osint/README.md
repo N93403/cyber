@@ -20,3 +20,7 @@ cd discover-osint-demo
 # Esegui lo script di setup
 chmod +x scripts/setup.sh
 ./scripts/setup.sh
+
+VM1 (Attacker) ────┐
+                   ├── Network Lab ───► Internet (Opzionale)
+VM2 (Target) ─────┘
