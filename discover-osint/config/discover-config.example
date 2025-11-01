@@ -1,0 +1,57 @@
+#!/bin/bash
+# Discover OSINT Framework - Configuration Example
+# Copy to ~/discover/local-config.sh and modify as needed
+
+# Global Configuration
+export DISCOVER_HOME="$HOME/discover"
+export RESULTS_DIR="$HOME/penetration-test-results"
+export LOG_LEVEL="INFO"  # DEBUG, INFO, WARN, ERROR
+
+# Network Configuration
+export SCANNER_IP="192.168.1.100"
+export TARGET_NETWORK="192.168.1.0/24"
+export SCAN_TIMEOUT="300"  # seconds
+
+# Tool Specific Configuration
+
+# Nmap Settings
+export NMAP_TOP_PORTS="1000"
+export NMAP_TIMING="T4"
+export NMAP_SCRIPT_TIMEOUT="5m"
+
+# theHarvester Settings
+export THEHARVESTER_SOURCES="google,bing,linkedin"
+export THEHARVESTER_LIMIT="500"
+
+# SubFinder Settings
+export SUBFINDER_RECURSIVE="true"
+export SUBFINDER_THREADS="10"
+
+# DNSRecon Settings
+export DNSRECON_THREADS="20"
+
+# Performance Settings
+export MAX_PARALLEL_SCANS="3"
+export MEMORY_LIMIT="2G"
+
+# Reporting
+export REPORT_FORMAT="markdown"  # markdown, html, pdf
+export AUTO_GENERATE_REPORT="true"
+
+# Notification (Optional)
+export NOTIFY_ON_COMPLETE="false"
+export NOTIFICATION_EMAIL="your-email@example.com"
+
+# Custom Script Hooks
+export PRE_SCAN_SCRIPT="$DISCOVER_HOME/scripts/custom-pre-scan.sh"
+export POST_SCAN_SCRIPT="$DISCOVER_HOME/scripts/custom-post-scan.sh"
+
+# Security Settings
+export ANONYMIZE_SCANS="false"
+export USE_TOR_PROXY="false"
+export TOR_PROXY="socks5://127.0.0.1:9050"
+
+# Load user-specific overrides
+if [ -f "$HOME/.discoverrc" ]; then
+    source "$HOME/.discoverrc"
+fi
