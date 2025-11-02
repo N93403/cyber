@@ -1,6 +1,7 @@
 # Virtual environment
 venv/
 env/
+.venv/
 
 # IDE
 .vscode/
@@ -11,27 +12,44 @@ env/
 # Logs
 *.log
 logs/
+*.pcap
 
 # Data files
-*.pcap
 dump.bin
 heartbleed_output.txt
 secret.txt
+*.dump
+*.mem
 
 # VM files
 *.vdi
 *.vmdk
 *.ova
+*.ovf
 
 # Temporary files
 tmp/
 temp/
+*.tmp
 
 # OS
 .DS_Store
 Thumbs.db
+Desktop.ini
 
 # Python
 __pycache__/
 *.pyc
 *.pyo
+*.pyd
+
+# Backup files
+*.bak
+*.backup
+
+# Network captures
+capture-*
+*.cap
+
+# Reports with sensitive data
+reports/*_sensitive.md
