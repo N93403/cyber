@@ -1,0 +1,13 @@
+# Example /etc/hosts configuration for Heartbleed Lab
+# Add this line to your attacker VM's /etc/hosts file
+# Replace 192.168.1.100 with your server VM's actual IP address
+
+192.168.1.100    www.heartbleedlabelgg.com
+
+# How to find the server IP:
+# 1. On the server VM, run: ifconfig
+# 2. Look for the IP address (usually 192.168.1.x or 10.0.2.x)
+# 3. Replace 192.168.1.100 with that IP
+
+# After editing, save the file and test with:
+# ping www.heartbleedlabelgg.com
