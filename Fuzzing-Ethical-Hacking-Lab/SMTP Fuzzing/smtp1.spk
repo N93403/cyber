@@ -1,0 +1,18 @@
+s_string("EHLO ");
+s_string_variable("localhost");
+s_string("\r\n");
+
+s_string("MAIL FROM: <");
+s_string_variable("attacker@example.com");
+s_string(">\r\n");
+
+s_string("RCPT TO: <");
+s_string_variable("victim@example.com");
+s_string(">\r\n");
+
+s_string("DATA\r\n");
+s_string("Subject: Test Message\r\n\r\n");
+s_string_variable("This is a test message for fuzzing");
+s_string("\r\n.\r\n");
+
+s_string("QUIT\r\n");
