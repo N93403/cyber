@@ -16,3 +16,13 @@ s_string_variable("This is a test message for fuzzing");
 s_string("\r\n.\r\n");
 
 s_string("QUIT\r\n");
+
+# Verifica connessione al target
+ping 192.168.1.100
+nmap -p 25 192.168.1.100
+
+# Esegui fuzzing SMTP
+generic_web_server_fuzz 192.168.1.100 25 smtp1.spk 0 0
+
+# Monitora traffico
+tcpdump -i eth0 host 192.168.1.100 -w smtp_fuzz.pcap
