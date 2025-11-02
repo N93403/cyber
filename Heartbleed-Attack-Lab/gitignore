@@ -1,0 +1,37 @@
+# Virtual environment
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Data files
+*.pcap
+dump.bin
+heartbleed_output.txt
+secret.txt
+
+# VM files
+*.vdi
+*.vmdk
+*.ova
+
+# Temporary files
+tmp/
+temp/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
