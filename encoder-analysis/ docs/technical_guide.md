@@ -91,7 +91,7 @@ python3 scripts/analysis_tool.py
 # Visualizza risultati
 cat results/analysis_report.txt
 
-2. Encoder Personalizzato
+###2. Encoder Personalizzato
 
 python3 scripts/custom_xor_encoder.py \
   -i payloads/original.elf \
