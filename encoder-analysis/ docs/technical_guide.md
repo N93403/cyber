@@ -1,13 +1,32 @@
 # 🎓 Guida Tecnica - Analisi Encoder
 
+Questa guida tecnica dettagliata esplora l'analisi degli encoder utilizzati in contesti di cybersecurity, con enfasi su payload offuscati per scopi educativi e di ricerca. Basata su concetti consolidati come l'entropia di Shannon e encoder Metasploit, la guida integra esempi pratici, strumenti e best practices. L'obiettivo è fornire una comprensione approfondita di come valutare l'efficacia dell'offuscamento, evitando qualsiasi promozione di attività non etiche. Tutti i concetti sono verificati attraverso fonti autorevoli in ethical hacking e analisi malware.
+
 ## Panoramica Tecnica
+
+L'analisi degli encoder coinvolge lo studio di tecniche per trasformare payload binari in forme offuscate, riducendo la probabilità di rilevamento da parte di antivirus o sistemi di intrusion detection. In cybersecurity, l'entropia è un indicatore chiave: file con alta entropia appaiono più casuali, simili a dati compressi o crittografati, rendendoli ideali per test di evasione. Ricerche indicano che l'entropia aiuta a distinguere malware packed da file benigni, con tool come ent che calcolano valori medi intorno a 7-8 bit per byte per dati altamente random.
 
 ### Architettura del Sistema
 
-Input Payload → Encoder → Payload Codificato → Decoder → Esecuzione
+Il sistema segue un flusso lineare:
+
+Input Payload: Dati originali, spesso shellcode o executables.
+Encoder: Applica trasformazioni come XOR o polimorfismo.
+Payload Codificato: Versione offuscata, con entropia aumentata.
+Decoder: Ripristina i dati originali.
+Esecuzione: Lancio del payload decodificato in ambiente controllato.
+
+Questa architettura è comune in framework come Metasploit, dove encoder come Shikata Ga Nai usano feedback additivo XOR per generare stub decoder dinamici.
+
 
 
 ### Metriche di Analisi
+
+Per valutare un encoder, si usano metriche quantitative. Ecco una tabella riassuntiva:
+Metrica,Formula/Descrizione,Scopo,Interpretazione Ideale
+Entropia di Shannon,"H(X) = -Σ p(x) log₂ p(x), dove p(x) è la probabilità di ogni byte.",Misura la casualità dei dati.,Alta (>7 bit/byte) indica buon offuscamento.
+Distribuzione Byte,"Analisi di frequenza: byte nulli (0x00), ASCII stampabili, byte di controllo, alti.",Identifica pattern come padding o headers.,"Uniforme, senza picchi anomali."
+Efficacia Encoding,Efficacia = ΔEntropia / ΔDimensioni (dove Δ è la variazione pre/post encoding).,Bilancia aumento di casualità con overhead di dimensione.,"ΔEntropia >0.5, ΔDimensioni <50%."
 
 #### 1. Entropia di Shannon
 - **Formula**: H(X) = -Σ p(x) log₂ p(x)
@@ -24,14 +43,20 @@ Input Payload → Encoder → Payload Codificato → Decoder → Esecuzione
 
 #### 3. Efficacia Encoding
 
+Calcola il trade-off tra miglioramento della casualità e aumento di dimensione. Valori positivi indicano encoder efficienti.
+
 Efficacia = ΔEntropia / ΔDimensioni
 
 
 ## Encoder Implementati
 
 ### Base64 Encoding
-```python
-# Esempio implementativo
+
+Base64 Encoding
+Base64 converte binario in testo ASCII, aumentando la dimensione del 33% ma facilitando la trasmissione. Esempio:
+
+# Esempio implementativo:
+
 import base64
 
 def base64_encode(data):
