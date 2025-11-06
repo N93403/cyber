@@ -1,0 +1,40 @@
+# File generati
+/payloads/*.elf
+/results/*
+!/results/.gitkeep
+
+# Logs
+*.log
+analysis.log
+
+# Ambiente Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Ambiente virtuale
+.env
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Backup
+backup/
+temp/
+
+# Metasploit
+/.msf4/
+/root/.msf4/
