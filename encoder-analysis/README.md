@@ -4,7 +4,14 @@
 Progetto dimostrativo per l'analisi delle tecniche di encoding in cybersecurity. Questo repository mostra come diversi encoder modificano la firma dei payload mantenendone la funzionalità.
 
 ## Struttura del Progetto
+Encoder Analizzati
+Base64: Encoding semplice per evasion basica
 
+Shikata Ga Nai: Encoder polimorfico avanzato
+
+Multi-Encoding: Combinazione di più encoder
+
+XOR Custom: Encoder personalizzato dimostrativo
 
 ## Quick Start
 ```bash
